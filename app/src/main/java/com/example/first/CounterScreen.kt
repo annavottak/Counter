@@ -45,7 +45,7 @@ fun CounterScreen(counter: Counter){
                 fontStyle = FontStyle.Italic)
             Row (modifier = Modifier.padding(8.dp)){
                 Button(
-                    onClick = {counter.add()},
+                    onClick = {counter.remove()},
                     shape = RoundedCornerShape(11.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Color(255,165,0), contentColor = Color.White),
                     border = BorderStroke(2.5.dp, Color.Black),
@@ -64,7 +64,7 @@ fun CounterScreen(counter: Counter){
                 }
                 Spacer(modifier = Modifier.width(8.dp))
                 Button(
-                    onClick = {counter.remove()},
+                    onClick = {counter.add()},
                     shape = RoundedCornerShape(11.dp),
                     colors = ButtonDefaults.buttonColors(containerColor = Color(0,128,0), contentColor = Color.White),
                     border = BorderStroke(2.5.dp, Color.Black),

@@ -27,7 +27,7 @@ class CheckChangeAfterButtonClick {
             val counter = Counter()
             setContent { CounterScreen(counter)}
             onNode(hasText("Decrement")and hasClickAction()).assertIsDisplayed().assertIsEnabled().performClick()
-            onNodeWithText("1").assertExists()
+            onNodeWithText("-1").assertExists()
         }
     }
     @Test
@@ -46,7 +46,7 @@ class CheckChangeAfterButtonClick {
             val counter = Counter()
             setContent { CounterScreen(counter)}
             onNode(hasText("Increment")and hasClickAction()).assertIsDisplayed().assertIsEnabled().performClick()
-            onNodeWithTag("counter").assertTextContains("-1")
+            onNodeWithTag("counter").assertTextContains("1")
         }
     }
 }
