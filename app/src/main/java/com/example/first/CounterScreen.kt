@@ -50,7 +50,7 @@ fun CounterScreen(counter: Counter){
                     colors = ButtonDefaults.buttonColors(containerColor = Color(255,165,0), contentColor = Color.White),
                     border = BorderStroke(2.5.dp, Color.Black),
                     modifier = Modifier.weight(1f)){
-                    Text("Decrement", fontSize = 25.sp, maxLines = 1,overflow = TextOverflow.Ellipsis)
+                    Text("Increment", fontSize = 25.sp, maxLines = 1,overflow = TextOverflow.Ellipsis)
                 }
                 Spacer(modifier = Modifier.width(8.dp))
                 Button(
@@ -70,7 +70,7 @@ fun CounterScreen(counter: Counter){
                     border = BorderStroke(2.5.dp, Color.Black),
                     modifier = Modifier.weight(1f)
                     ){
-                    Text("Increment", fontSize = 25.sp, maxLines = 1,overflow = TextOverflow.Ellipsis)
+                    Text("Decrement", fontSize = 25.sp, maxLines = 1,overflow = TextOverflow.Ellipsis)
                 }
             }
         }

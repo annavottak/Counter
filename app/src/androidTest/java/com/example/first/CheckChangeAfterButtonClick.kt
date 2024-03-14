@@ -26,7 +26,7 @@ class CheckChangeAfterButtonClick {
         composeTestRule.apply {
             val counter = Counter()
             setContent { CounterScreen(counter)}
-            onNode(hasText("Decrement")and hasClickAction()).assertIsDisplayed().assertIsEnabled().performClick()
+            onNode(hasText("Increment")and hasClickAction()).assertIsDisplayed().assertIsEnabled().performClick()
             onNodeWithText("1").assertExists()
         }
     }
@@ -45,7 +45,7 @@ class CheckChangeAfterButtonClick {
         composeTestRule.apply {
             val counter = Counter()
             setContent { CounterScreen(counter)}
-            onNode(hasText("Increment")and hasClickAction()).assertIsDisplayed().assertIsEnabled().performClick()
+            onNode(hasText("Decrement")and hasClickAction()).assertIsDisplayed().assertIsEnabled().performClick()
             onNodeWithTag("counter").assertTextContains("-1")
         }
     }

@@ -21,6 +21,9 @@
           <timeTargetWasSelectedWithDropDown value="2024-03-14T10:09:32.794470Z" />
         </State>
       </entry>
+      <entry key="testClickButtonDecrement()">
+        <State />
+      </entry>
     </value>
   </component>
 </project>
