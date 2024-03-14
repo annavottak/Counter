@@ -20,11 +20,11 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.sp
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.ui.platform.testTag
 
 
 @Composable
-fun CounterScreen(){
-    val counter = remember {Counter()}
+fun CounterScreen(counter: Counter){
     Box(
         contentAlignment = Center,
         modifier = Modifier.fillMaxSize()) {
@@ -38,6 +38,7 @@ fun CounterScreen(){
                 fontWeight= FontWeight.Medium,
                 fontStyle = FontStyle.Italic)
             Text(
+                modifier = Modifier.testTag("counter"),
                 text = "${counter.number}",
                 fontSize = 60.sp,
                 fontWeight= FontWeight.Bold,
@@ -75,11 +76,4 @@ fun CounterScreen(){
         }
 
     }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun CounterScreenPreview() {
-    CounterScreen()
 }
