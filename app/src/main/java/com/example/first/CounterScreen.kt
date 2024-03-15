@@ -24,53 +24,100 @@ import androidx.compose.ui.platform.testTag
 
 
 @Composable
-fun CounterScreen(counter: Counter){
+fun CounterScreen(counter: Counter) {
     Box(
         contentAlignment = Center,
-        modifier = Modifier.fillMaxSize()) {
+        modifier = Modifier.fillMaxSize()
+    ) {
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center) {
+            verticalArrangement = Arrangement.Center
+        ) {
             Text(
                 text = "COUNTER",
                 fontSize = 32.sp,
-                fontWeight= FontWeight.Medium,
-                fontStyle = FontStyle.Italic)
-            Text(
-                modifier = Modifier.testTag("counter"),
-                text = "${counter.number}",
-                fontSize = 60.sp,
-                fontWeight= FontWeight.Bold,
-                fontStyle = FontStyle.Italic)
-            Row (modifier = Modifier.padding(8.dp)){
+                fontWeight = FontWeight.Medium,
+                fontStyle = FontStyle.Italic
+            )
+            if (counter.number == 1000) {
+                Text(
+                    modifier = Modifier.testTag("counter"),
+                    text = "${counter.number}",
+                    fontSize = 60.sp,
+                    color = Color.Red,
+                    fontWeight = FontWeight.Bold,
+                    fontStyle = FontStyle.Italic
+                )
+            } else if (counter.number == -1000) {
+                Text(
+                    modifier = Modifier.testTag("counter"),
+                    text = "${counter.number}",
+                    fontSize = 60.sp,
+                    color = Color.Blue,
+                    fontWeight = FontWeight.Bold,
+                    fontStyle = FontStyle.Italic
+                )
+            } else {
+                Text(
+                    modifier = Modifier.testTag("counter"),
+                    text = "${counter.number}",
+                    fontSize = 60.sp,
+                    color = Color.Black,
+                    fontWeight = FontWeight.Bold,
+                    fontStyle = FontStyle.Italic
+                )
+            }
+            Row(modifier = Modifier.padding(8.dp)) {
                 Button(
-                    onClick = {counter.remove()},
+                    enabled = counter.number > -1000,
+                    onClick = { counter.remove() },
                     shape = RoundedCornerShape(11.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(255,165,0), contentColor = Color.White),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(255, 165, 0),
+                        contentColor = Color.White
+                    ),
                     border = BorderStroke(2.5.dp, Color.Black),
-                    modifier = Modifier.weight(1f)){
-                    Text("Decrement", fontSize = 25.sp, maxLines = 1,overflow = TextOverflow.Ellipsis)
+                    modifier = Modifier.weight(1f).testTag("remove")
+                ) {
+                    Text(
+                        "Decrement",
+                        fontSize = 25.sp,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
                 }
                 Spacer(modifier = Modifier.width(8.dp))
                 Button(
-                    onClick = {counter.reset()},
+                    onClick = { counter.reset() },
                     shape = RoundedCornerShape(11.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(255,0,0), contentColor = Color.White),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(255, 0, 0),
+                        contentColor = Color.White
+                    ),
                     border = BorderStroke(2.5.dp, Color.Black),
                     modifier = Modifier.weight(1f)
-                ){
-                    Text("Reset", fontSize = 25.sp, maxLines = 1,overflow = TextOverflow.Ellipsis)
+                ) {
+                    Text("Reset", fontSize = 25.sp, maxLines = 1, overflow = TextOverflow.Ellipsis)
                 }
                 Spacer(modifier = Modifier.width(8.dp))
                 Button(
-                    onClick = {counter.add()},
+                    enabled = counter.number < 1000,
+                    onClick = { counter.add() },
                     shape = RoundedCornerShape(11.dp),
-                    colors = ButtonDefaults.buttonColors(containerColor = Color(0,128,0), contentColor = Color.White),
+                    colors = ButtonDefaults.buttonColors(
+                        containerColor = Color(0, 128, 0),
+                        contentColor = Color.White
+                    ),
                     border = BorderStroke(2.5.dp, Color.Black),
-                    modifier = Modifier.weight(1f)
-                    ){
-                    Text("Increment", fontSize = 25.sp, maxLines = 1,overflow = TextOverflow.Ellipsis)
+                    modifier = Modifier.weight(1f).testTag("add")
+                ) {
+                    Text(
+                        "Increment",
+                        fontSize = 25.sp,
+                        maxLines = 1,
+                        overflow = TextOverflow.Ellipsis
+                    )
                 }
             }
         }
