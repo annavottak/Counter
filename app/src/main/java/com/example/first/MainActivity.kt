@@ -11,7 +11,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             FirstTheme {
-                val counter = remember {Counter()}
+                val counter = remember { Counter() }
 
                 CounterScreen(counter)
             }

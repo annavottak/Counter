@@ -2,7 +2,6 @@ package com.example.first
 
 import androidx.compose.runtime.Composable
 import androidx.compose.material3.Text
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.layout.*
 import androidx.compose.ui.unit.dp
@@ -11,7 +10,6 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.Center
 import androidx.compose.ui.text.font.FontStyle
@@ -40,33 +38,39 @@ fun CounterScreen(counter: Counter) {
                 fontWeight = FontWeight.Medium,
                 fontStyle = FontStyle.Italic
             )
-            if (counter.number == 1000) {
-                Text(
-                    modifier = Modifier.testTag("counter"),
-                    text = "${counter.number}",
-                    fontSize = 60.sp,
-                    color = Color.Red,
-                    fontWeight = FontWeight.Bold,
-                    fontStyle = FontStyle.Italic
-                )
-            } else if (counter.number == -1000) {
-                Text(
-                    modifier = Modifier.testTag("counter"),
-                    text = "${counter.number}",
-                    fontSize = 60.sp,
-                    color = Color.Blue,
-                    fontWeight = FontWeight.Bold,
-                    fontStyle = FontStyle.Italic
-                )
-            } else {
-                Text(
-                    modifier = Modifier.testTag("counter"),
-                    text = "${counter.number}",
-                    fontSize = 60.sp,
-                    color = Color.Black,
-                    fontWeight = FontWeight.Bold,
-                    fontStyle = FontStyle.Italic
-                )
+            when (counter.number) {
+                -1000 -> {
+                    Text(
+                        modifier = Modifier.testTag("counter"),
+                        text = "${counter.number}",
+                        fontSize = 60.sp,
+                        color = Color.Blue,
+                        fontWeight = FontWeight.Bold,
+                        fontStyle = FontStyle.Italic
+                    )
+                }
+
+                1000 -> {
+                    Text(
+                        modifier = Modifier.testTag("counter"),
+                        text = "${counter.number}",
+                        fontSize = 60.sp,
+                        color = Color.Red,
+                        fontWeight = FontWeight.Bold,
+                        fontStyle = FontStyle.Italic
+                    )
+                }
+
+                else -> {
+                    Text(
+                        modifier = Modifier.testTag("counter"),
+                        text = "${counter.number}",
+                        fontSize = 60.sp,
+                        color = Color.Black,
+                        fontWeight = FontWeight.Bold,
+                        fontStyle = FontStyle.Italic
+                    )
+                }
             }
             Row(modifier = Modifier.padding(8.dp)) {
                 Button(
@@ -78,7 +82,9 @@ fun CounterScreen(counter: Counter) {
                         contentColor = Color.White
                     ),
                     border = BorderStroke(2.5.dp, Color.Black),
-                    modifier = Modifier.weight(1f).testTag("remove")
+                    modifier = Modifier
+                        .weight(1f)
+                        .testTag("remove")
                 ) {
                     Text(
                         "Decrement",
@@ -110,7 +116,9 @@ fun CounterScreen(counter: Counter) {
                         contentColor = Color.White
                     ),
                     border = BorderStroke(2.5.dp, Color.Black),
-                    modifier = Modifier.weight(1f).testTag("add")
+                    modifier = Modifier
+                        .weight(1f)
+                        .testTag("add")
                 ) {
                     Text(
                         "Increment",
