@@ -2,8 +2,24 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="Test1000Click">
+      <entry key="CheckChangeAfterButtonClick">
         <State />
+      </entry>
+      <entry key="Test1000Click">
+        <State>
+          <targetSelectedWithDropDown>
+            <Target>
+              <type value="QUICK_BOOT_TARGET" />
+              <deviceKey>
+                <Key>
+                  <type value="VIRTUAL_DEVICE_PATH" />
+                  <value value="C:\Users\jak\.android\avd\Pixel_7a_API_30.avd" />
+                </Key>
+              </deviceKey>
+            </Target>
+          </targetSelectedWithDropDown>
+          <timeTargetWasSelectedWithDropDown value="2024-03-19T12:44:49.009308900Z" />
+        </State>
       </entry>
       <entry key="app">
         <State />
