@@ -1,4 +1,3 @@
-
 package com.example.first
 
 import androidx.compose.ui.test.assertIsDisplayed
@@ -18,34 +17,41 @@ import androidx.compose.ui.test.printToLog
 import org.junit.Before
 import org.junit.Rule
 import org.junit.Test
+
 class CheckChangeAfterButtonClick {
     @get:Rule
-    val composeTestRule= createComposeRule()
+    val composeTestRule = createComposeRule()
+
     @Test
-    fun testClickButtonDecrement(){
+    fun testClickButtonDecrement() {
         composeTestRule.apply {
             val counter = Counter()
-            setContent { CounterScreen(counter)}
-            onNode(hasText("Decrement")and hasClickAction()).assertIsDisplayed().assertIsEnabled().performClick()
+            setContent { CounterScreen(counter) }
+            onNode(hasText("Decrement") and hasClickAction()).assertIsDisplayed().assertIsEnabled()
+                .performClick()
             onNodeWithText("-1").assertExists()
         }
     }
+
     @Test
-    fun testClickButtonReset(){
+    fun testClickButtonReset() {
         composeTestRule.apply {
             val counter = Counter()
-            val count=counter.number.toString()
-            setContent { CounterScreen(counter)}
-            onNode(hasText("Reset")and hasClickAction()).assertIsDisplayed().assertIsEnabled().performClick()
+            val count = counter.number.toString()
+            setContent { CounterScreen(counter) }
+            onNode(hasText("Reset") and hasClickAction()).assertIsDisplayed().assertIsEnabled()
+                .performClick()
             onNodeWithTag("counter").assertTextContains("${count}")
         }
     }
+
     @Test
-    fun testClickButtonIncrement(){
+    fun testClickButtonIncrement() {
         composeTestRule.apply {
             val counter = Counter()
-            setContent { CounterScreen(counter)}
-            onNode(hasText("Increment")and hasClickAction()).assertIsDisplayed().assertIsEnabled().performClick()
+            setContent { CounterScreen(counter) }
+            onNode(hasText("Increment") and hasClickAction()).assertIsDisplayed().assertIsEnabled()
+                .performClick()
             onNodeWithTag("counter").assertTextContains("1")
         }
     }

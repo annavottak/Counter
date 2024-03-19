@@ -5,7 +5,7 @@
       <entry key="CheckChangeAfterButtonClick">
         <State />
       </entry>
-      <entry key="app">
+      <entry key="Test1000Click">
         <State>
           <targetSelectedWithDropDown>
             <Target>
@@ -13,13 +13,19 @@
               <deviceKey>
                 <Key>
                   <type value="VIRTUAL_DEVICE_PATH" />
-                  <value value="C:\Users\jak\.android\avd\Pixel_7_Pro_API_30.avd" />
+                  <value value="C:\Users\jak\.android\avd\Pixel_7a_API_30.avd" />
                 </Key>
               </deviceKey>
             </Target>
           </targetSelectedWithDropDown>
-          <timeTargetWasSelectedWithDropDown value="2024-03-14T10:09:32.794470Z" />
+          <timeTargetWasSelectedWithDropDown value="2024-03-19T12:44:49.009308900Z" />
         </State>
+      </entry>
+      <entry key="app">
+        <State />
+      </entry>
+      <entry key="testClickButtonDecrement()">
+        <State />
       </entry>
     </value>
   </component>
